@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Веб-сторінка "Галерея"</title>
+    <script>
+      var photosCount = 5;
+      var currentPhotoIndex = 1;
+      function showNextPhoto() {
+        currentPhotoIndex++;
+        if (currentPhotoIndex > photosCount) currentPhotoIndex = 1;
+
+        var elem = document.getElementById('currentPhoto');
+        elem.src = 'images/photo' + currentPhotoIndex + '.jpg';
+      }
+
+      function addNextPhoto() {
+        var newImage = document.createElement('img');
+
+        currentPhotoIndex++;
+        if (currentPhotoIndex > photosCount) currentPhotoIndex = 1;
+
+        newImage.src = 'images/photo' + currentPhotoIndex + '.jpg';
+
+        var containerElem = document.getElementById('gallery');
+        containerElem.appendChild(newImage);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="gallery">
+      <img id="currentPhoto" src="images/photo1.jpg" />
+    </div>
+    <button onclick="showNextPhoto()">Наступне</button>
+    <button onclick="addNextPhoto()">Додати фото</button>
+  </body>
+</html>
